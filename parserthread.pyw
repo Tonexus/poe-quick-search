@@ -52,26 +52,29 @@ class ParserThread(threading.Thread):
                                                         'stash':stash['stash'], 'x':item['x'], 'y':item['y']})
 
     def check_item(self, item, stash, params):
-        """Checks whether the item matches specifications."""
+        """Checks whether the item matches specifications.
+        :type params: dict
+        :type item: dict
+        """
         if not params['regex'].pattern:
             return None
 
-        if not item['league'] == params['league']:
+        if not item.get('league') == params['league']:
             return None
 
-        if not params['corrupted'] and item['corrupted'] == 'True':
+        if not params.get('corrupted') and item.get('corrupted') == 'True':
             return None
 
-        if not params['crafted'] and 'craftedMods' in item:
+        if not params.get('crafted') and 'craftedMods' in item:
             return None
 
-        if not params['frame type'] == item['frameType']:
+        if not params.get('frame type', ) == item['frameType']:
             return None
 
-        if len(item['sockets']) < params['sockets']:
+        if len(item.get('sockets', [])) < params['sockets']:
             return None
 
-        if not self.check_links(item['sockets'], params['links']):
+        if not self.check_links(item.get('sockets', []), params['links']):
             return None
 
         full_name = constants.LOCALIZATION.sub('', ' '.join(filter(None, [item['name'], item['typeLine']])))
