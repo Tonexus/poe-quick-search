@@ -5,7 +5,7 @@ import re
 # API urls
 
 STASH_API = 'http://api.pathofexile.com/api/public-stash-tabs?id='
-NEXT_API = 'http://api.poe.ninja/api/Data/GetStats'
+NEXT_API = 'https://poe.ninja/api/Data/GetStats'
 RATES_API = 'http://poe.ninja/api/Data/GetCurrencyOverview?league='
 
 # Currency strings
@@ -29,7 +29,7 @@ CURRENCY_NICE = ['alteration', 'fusing', 'alchemy', 'chaos', 'gcp',
                  'chisel', 'scouring', 'blessed', 'regret', 'regal',
                  'divine', 'vaal']
 
-LEAGUES = ['Harbinger', 'Hardcore Harbinger', 'Standard', 'Hardcore']
+LEAGUES = ['Delve']
 
 FRAME_TYPES = ['Normal', 'Magic', 'Rare', 'Unique', 'Gem',
                'Currency', 'Divination Card', 'Quest Item',
